@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="Create Registeration">
+		<div align="center">
+			Username *: <input type="username" name="username" /><br />
+			Password *: <input type="password" name="pwd" /><br />
+			Lastname*: <input type="lastname" name="lname" /><br />	
+			Email *: <input type="email" name="email" /><br />
+			MoblieNo: <input type="mobileno" name="mob" /><br />
+			Address *: <input type="address" name="add" /><br />
+			Post Code *: <input type="postcode" name="ptc" /><br />
+
+		<input type="submit" value="Submit" />
+		</div>
+	</form>
+</body>
+</html>

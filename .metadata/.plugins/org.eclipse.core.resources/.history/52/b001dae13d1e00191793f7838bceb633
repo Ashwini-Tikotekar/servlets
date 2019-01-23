@@ -1,0 +1,39 @@
+package com.bridgelabz.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LoginServlet extends HttpServlet{
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	 response.setContentType("login.html");
+     PrintWriter pw = response.getWriter();
+     String username = request.getParameter("username");
+     String pwd = request.getParameter("password");
+     RequestDispatcher rd1 = request.getRequestDispatcher("login.html");
+     rd1.include(request, response);
+     //pw.println("<br><br><br>");
+     if ( pwd.length()>=8) {
+         pw.println("<h3>VALID CREDENTIALS</h3></center>");
+         rd1=request.getRequestDispatcher("registration.html");
+         rd1.forward(request, response);
+     } else {
+         pw.println("<h3>INVALID CREDENTIALS</h3></center>");
+     }
+    // pw.println("</font></br></br></br>");
+     //RequestDispatcher rd2 = request.getRequestDispatcher("registration.html");
+     //rd2.forward(request, response);
+ }
+    ///
+// public void doPost(HttpServletRequest request, HttpServletResponse response){
+//  String name=request.getParameter("username");
+//  System.out.println(name);
+//  String password=request.getParameter("password");
+//  System.out.println(password);
+//}
+}

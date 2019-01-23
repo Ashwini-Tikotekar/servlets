@@ -1,0 +1,25 @@
+package com.bridgelabz.servlets;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class RegistrationServlet {
+	public void dopost(HttpServletRequest request,HttpServletResponse response) {
+		String name=request.getParameter("username");
+		System.out.println(name);
+		String password=request.getParameter("pwd");
+		System.out.println(password);
+		String lastname=request.getParameter("lname");
+		System.out.println(lastname);
+		String email=request.getParameter("email");
+		System.out.println(email);
+		String address=request.getParameter("add");
+		System.out.println(address);
+		long mobileno= Long.parseLong(request.getParameter("mob"));
+		System.out.println(mobileno);
+		long postcode=Long.parseLong(request.getParameter("postcode"));
+		System.out.println(postcode);
+		
+	}
+
+}

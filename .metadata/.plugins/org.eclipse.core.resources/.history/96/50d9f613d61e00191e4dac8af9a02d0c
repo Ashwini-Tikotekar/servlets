@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="logout" method="get">
+<h5>logged out successfully!!</h5>
+<h5>please login to contine.</h5>
+<input type="submit" value="login">
+</form>
+</body>
+</html>

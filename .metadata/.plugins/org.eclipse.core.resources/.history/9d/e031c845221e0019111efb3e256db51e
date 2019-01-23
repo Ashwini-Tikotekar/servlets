@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+</head>
+<body>
+<form action="login">
+		<div align="center">
+			Username *: <input type="username" name="username" required/><br />
+			Password *: <input type="password" name="pwd" /><br />
+			Lastname*: <input type="lastname" name="lname" /><br />	
+			Email *: <input type="email" name="email" /><br />
+			MoblieNo: <input type="mobileno" name="mob" /><br />
+			Address *: <input type="address" name="add" /><br />
+			Post Code *: <input type="postcode" name="ptc" /><br />
+
+		<input type="submit" value="Submit" />
+		</div>
+	</form>
+</body>
+</html>

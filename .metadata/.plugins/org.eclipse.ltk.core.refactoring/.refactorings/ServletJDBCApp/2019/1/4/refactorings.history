@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;dbutil.mkihij.java&apos; to &apos;UpdateToDataBase.java&apos;&#x0A;- Original project: &apos;ServletJDBCApp&apos;&#x0A;- Original element: &apos;dbutil.mkihij.java&apos;&#x0A;- Renamed element: &apos;dbutil.UpdateToDataBase.java&apos;" description="Rename compilation unit &apos;mkihij.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;dbutil{mkihij.java" name="UpdateToDataBase.java" references="false" stamp="1548238855437" version="1.0"/>
+</session>
