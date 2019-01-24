@@ -40,7 +40,7 @@ public class UpdateToDataBase
         preparedStmt.setString (2,userInfo.getUsername());
         preparedStmt.setString (3, userInfo.getLastname());
         preparedStmt.setString (4, userInfo.getEmail());
-        preparedStmt.setLong(6, userInfo.getMobileno());
+        preparedStmt.setString(6, userInfo.getMobileno());
         preparedStmt.setString(5, userInfo.getPassword());
         preparedStmt.execute();
         conn.close();

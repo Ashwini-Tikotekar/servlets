@@ -5,7 +5,7 @@ public class UserDetails {
 	private	String Password ;
 	private String lastname;
 	private String email;
-	private long mobileno;
+	private String mobileno;
 	
 	 //constructor 
 	public UserDetails(){
@@ -13,7 +13,7 @@ public class UserDetails {
 		Password =null;
 		lastname=null;
 		email=null;
-		mobileno=0;
+		mobileno=null;
 		
 	}
 
@@ -49,11 +49,11 @@ public class UserDetails {
 		this.email = email;
 	}
 
-	public long getMobileno() {
+	public String getMobileno() {
 		return mobileno;
 	}
 
-	public void setMobileno(long mobileno) {
+	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
 }	

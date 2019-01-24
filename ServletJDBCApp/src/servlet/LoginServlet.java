@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbutil.GetUserData;
 import dbutil.UpdateToDataBase;
 import model.UserDetails;
 
 public class LoginServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("login.html");
+		//response.setContentType("login.html");
 		UserDetails userInfo=new UserDetails();
 		String username = request.getParameter("username");
 		userInfo.setUsername(username);
@@ -24,36 +25,24 @@ public class LoginServlet extends HttpServlet
 		userInfo.setPassword(pwd);
 		PrintWriter pw = response.getWriter();
 		RequestDispatcher rd1 ;
-		rd1=request.getRequestDispatcher("login.html");
-		rd1.include(request, response);
+		
 		try {
-			UpdateToDataBase.registration(userInfo);
-		} catch (ClassNotFoundException | SQLException e) {
+			userInfo=GetUserData.getUserDetails( userInfo);
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		pw.println("<br><br><br>");
-		if (!username.isEmpty() && pwd.length()>=8) 
-		{
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		System.out.println("User infooo= "+userInfo);
+		if(userInfo!=null) {
 			rd1=request.getRequestDispatcher("home.html");
-			rd1.forward(request, response);
-		}
-		else {
-			pw.println("<h4>INVALID CREDENTIALS</h4>");
-			//		rd1=request.getRequestDispatcher("login.html");
-			//			rd1.include(request, response);
-		}
-		//		rd1=request.getRequestDispatcher("registration.html");
-		//		rd1.forward(request, response);
-		//		
-
+			rd1.forward(request,response);
+		} 
+		else 
+			rd1=request.getRequestDispatcher("login.html"); 
+	     	rd1.include(request,response);
 	}
 }
-///
-// public void doPost(HttpServletRequest request, HttpServletResponse response){
-//  String name=request.getParameter("username");
-//  System.out.println(name);
-//  String password=request.getParameter("password");
-//  System.out.println(password);
-//}
-//}
+

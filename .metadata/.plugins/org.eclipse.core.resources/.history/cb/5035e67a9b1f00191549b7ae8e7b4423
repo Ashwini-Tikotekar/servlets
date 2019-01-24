@@ -1,0 +1,39 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dbutil.GetUserData;
+import dbutil.UpdateToDataBase;
+import model.UserDetails;
+
+public class LoginServlet extends HttpServlet
+{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("login.html");
+		UserDetails userInfo=new UserDetails();
+		String username = request.getParameter("username");
+		userInfo.setUsername(username);
+		String pwd = request.getParameter("password");
+		userInfo.setPassword(pwd);
+		PrintWriter pw = response.getWriter();
+		RequestDispatcher rd1 ;
+		userInfo=GetUserData.getUserDetails( userInfo); 
+		if(userInfo!=null) {
+			
+			rd1=request.getRequestDispatcher("home.html");
+			rd1.forward(request,response);
+		} 
+		else 
+			rd1=request.getRequestDispatcher("login.html"); 
+		rd1.include(request,response);
+	}
+}
+
