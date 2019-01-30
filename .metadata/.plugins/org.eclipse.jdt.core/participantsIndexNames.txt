@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+/home/admin1/eclipse-workspace/servlets/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3427242408.index
+/LoginRegistrationApp/src

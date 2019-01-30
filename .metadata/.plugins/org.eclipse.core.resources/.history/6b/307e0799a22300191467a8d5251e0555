@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="com.bridgelabz.servlets.UserDetails"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		// allow access only if session exists 
+		UserDetails user=(UserDetails)session.getAttribute("user");
+
+       
+	String userName = null;
+	Cookie[] cookies = request.getCookies();
+	    for (Cookie cookie : cookies) {
+	        if (cookie.getName().equals("user"))
+	            userName = cookie.getValue();
+	    }
+	%>
+	<br>Login Successful<br>
+	       <%out.println("User Name= "+user.getUsername());%> <br>
+	        <%out.println("User lastName= "+user.getLastname());%> <br>
+	        <%out.println("User Password= "+user.getPassword());%> <br>
+	        <%out.println("User Email= "+user.getEmail());%> <br>
+	       <%out.println("User PhoneNum= "+user.getMobileno());%> <br>
+	       <%out.println("Session ID= "+session.getId());%> <br>
+	        
+	<a href=login.html>Sign Out</a><br>
+	
+
+
+</body>
+</html>

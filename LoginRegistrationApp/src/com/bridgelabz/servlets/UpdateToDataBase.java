@@ -1,0 +1,52 @@
+package com.bridgelabz.servlets;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+//import model.UserDetails;
+
+public class UpdateToDataBase {
+
+	
+	public static Connection getMySQLConnection()
+            throws ClassNotFoundException, SQLException {
+        String hostName = "localhost";
+        String dbName = "servletproject";
+        String userName = "root";
+        String password = "root";
+        return getMySQLConnection(hostName, dbName, userName, password);
+    }
+
+    public static Connection getMySQLConnection(String hostName, String dbName,
+            String userName, String password) throws SQLException,
+    ClassNotFoundException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;
+
+        Connection conn = DriverManager.getConnection(connectionURL, userName,
+                password);
+        return conn;
+    }
+
+    public static void registration(UserDetails userInfo) throws SQLException, ClassNotFoundException
+    {
+
+        String query = "insert into loginDB (id,username,lastname,email,password,mobileno)"
+                + " values (?,?, ?, ?, ?,?)";
+        Connection conn=getMySQLConnection();
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, 0);
+        preparedStmt.setString (2,userInfo.getUsername());
+        preparedStmt.setString (3, userInfo.getLastname());
+        preparedStmt.setString (4, userInfo.getEmail());
+        preparedStmt.setString(6, userInfo.getMobileno());
+        preparedStmt.setString(5, userInfo.getPassword());
+        preparedStmt.execute();
+        conn.close();
+    }
+
+}

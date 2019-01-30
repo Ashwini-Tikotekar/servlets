@@ -35,10 +35,15 @@ public class GetUserData {
 			ResultSet rs = preStatement.executeQuery();
 			while(rs.next()){
                 flag=1;
-                //user=new UserInfo();
+                user=new UserDetails();
+                user.setEmail(rs.getString(3));
+                user.setLastname(rs.getString(2));
+                user.setUsername(rs.getString(1));
+                user.setMobileno(rs.getString(5));
+                user.setPassword(rs.getString(4));
                 System.out.println("password = "+rs.findColumn("password"));
             }
-            if(flag==1) {
+            if(flag==0) {
                 user=new UserDetails();
             }
             rs.close();

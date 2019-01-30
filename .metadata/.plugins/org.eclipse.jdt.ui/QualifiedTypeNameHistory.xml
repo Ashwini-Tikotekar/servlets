@@ -4,5 +4,14 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="dbutil.UpdateToDataBase"/>
+<fullyQualifiedTypeName name="dbutil.GetUserData"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.buf.UDecoder"/>
 <fullyQualifiedTypeName name="model.UserDetails"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.http.parser.Cookie"/>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.bridgelabz.servlets.GetUserData"/>
+<fullyQualifiedTypeName name="com.bridgelabz.servlets.UserDetails"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>

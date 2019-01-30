@@ -1,0 +1,64 @@
+package com.bridgelabz.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class LoginServlet extends HttpServlet
+{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("login.html");
+		UserDetails userInfo=new UserDetails();
+		String username = request.getParameter("username");
+		userInfo.setUsername(username);
+		String pwd = request.getParameter("password");
+		userInfo.setPassword(pwd);
+		PrintWriter pw = response.getWriter();
+		RequestDispatcher rd1 ;
+		rd1=request.getRequestDispatcher("login.html");
+		rd1.include(request, response);
+
+		
+			UserDetails user=new UserDetails();
+			try {
+				user = GetUserData.getUserDetails(userInfo);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(user!=null){
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+			
+				//setting session to expiry in 30 mins
+
+				session.setMaxInactiveInterval(30*60);
+				Cookie userName = new Cookie("user", username);
+				userName.setMaxAge(30*60);
+				response.addCookie(userName);
+				response.sendRedirect("LoginSuccess.jsp");
+			}
+			else{
+//				RequestDispatcher rd = getServletContext().
+				//getRequestDispatcher("/login.html");
+				PrintWriter out= response.getWriter();
+				out.println("Either user name or password is wrong.");
+
+				rd1=request.getRequestDispatcher("login.html");
+				rd1.include(request, response);
+			}
+		} 
+
+	}
+
